@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>منصة التواصل الاجتماعي - Social Connect</title>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts (Cairo) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Header -->
+    <header class="main-header">
+        <!-- Right Section: Logo & Search -->
+        <div class="header-right">
+            <div class="logo-box">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </div>
+                <span class="logo-text">تواصل</span>
+            </div>
+            
+            <!-- Search Bar -->
+            <div class="search-box">
+                <span class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+                <input type="text" id="global-search" placeholder="بحث في تواصل...">
+            </div>
+        </div>
+
+        <!-- Center Navigation Icons -->
+        <nav class="header-nav">
+            <button title="الرئيسية" class="nav-btn active">
+                <i class="fa-solid fa-house"></i>
+            </button>
+            <button title="الفيديوهات" class="nav-btn">
+                <i class="fa-solid fa-tv"></i>
+            </button>
+            <button title="المجموعات" class="nav-btn">
+                <i class="fa-solid fa-users"></i>
+            </button>
+            <button title="الألعاب" class="nav-btn">
+                <i class="fa-solid fa-gamepad"></i>
+            </button>
+        </nav>
+
+        <!-- Left Section: Profile & Quick Actions -->
+        <div class="header-left">
+            <button id="theme-toggle" class="icon-btn" title="تبديل الوضع">
+                <i class="fa-solid fa-moon icon-moon"></i>
+                <i class="fa-solid fa-sun icon-sun"></i>
+            </button>
+            
+            <button class="icon-btn relative-btn" title="الإشعارات">
+                <i class="fa-solid fa-bell"></i>
+                <span class="badge"></span>
+            </button>
+
+            <button class="icon-btn" title="الرسائل">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+
+            <div class="user-avatar-top">
+                <img src="images/a.png" alt="صورة المستخدم"> 
+            </div>
+                
+        </div>
+    </header>
+ 
+    <!-- Main Workspace Container -->
+    <div class="main-container">
+
+        <!-- LEFT SIDEBAR (Groups, Servers, Navigation) -->
+        <aside class="sidebar sidebar-left">
+            <!-- User Profile -->
+            <div class="user-profile-card">
+                <img src="images/member-8.png" alt="سارة أحمد">
+                <div class="user-info">
+                    <h4>سارة أحمد</h4>
+                    <p>الصفحة الشخصية</p>
+                </div>
+            </div>
+
+            <!-- Quick Navigation -->
+            <ul class="side-menu">
+                <li>
+                    <a href="#" class="menu-item active">
+                        <i class="fa-solid fa-user-group text-blue"></i>
+                        <span>الأصدقاء</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">
+                        <i class="fa-solid fa-clock-rotate-left text-amber"></i>
+                        <span>الذكريات</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="menu-item">
+                        <i class="fa-solid fa-bookmark text-purple"></i>
+                        <span>العناصر المحفوظة</span>
+                    </a>
+                </li>
+            </ul>
+
+            <hr class="divider">
+
+            <!-- Groups Section -->
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <h3>المجموعات (Groups)</h3>
+                    <a href="#" class="link-btn">إدارة</a>
+                </div>
+                <div class="item-list">
+                    <div class="group-item">
+                        <div class="item-icon icon-indigo">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <span class="item-title">مجتمع المطورين العرب</span>
+                    </div>
+                    <div class="group-item">
+                        <div class="item-icon icon-emerald">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+                        <span class="item-title">عالم التصميم و UI/UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Server Section -->
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <h3>السيرفرات (Servers)</h3>
+                </div>
+                <div class="item-list">
+                    <div class="group-item">
+                        <div class="item-icon icon-dark">
+                            <i class="fa-brands fa-discord"></i>
+                        </div>
+                        <span class="item-title">سيرفر التقنية والألعاب</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collapsible Menu -->
+            <div id="see-more-section" class="collapsible-menu hidden">
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-calendar-day text-red"></i>
+                    <span>المناسبات</span>
+                </a>
+                <a href="#" class="menu-item">
+                    <i class="fa-solid fa-bullhorn text-teal"></i>
+                    <span>الإعلانات</span>
+                </a>
+            </div>
+
+            <button id="see-more-btn" onclick="toggleSeeMore()" class="see-more-button">
+                <span id="see-more-text">
+                    <i class="fa-solid fa-chevron-down"></i>
+                    عرض المزيد (See More)
+                </span>
+            </button>
+        </aside>
+
+        <!-- MIDDLE SECTION (Feed, Stories, Create Post) -->
+        <main class="feed-content">
+
+            <!-- STORIES CAROUSEL -->
+            <div class="stories-container">
+                <div class="stories-wrapper">
+                    
+                    <!-- Create Story -->
+                    <div class="story-card create-story">
+                        <img src="images/status-1.png" alt="إنشاء قصة">
+                        <div class="add-story-icon">
+                            <i class="fa-solid fa-plus"></i>
+                        </div>
+                        <span class="story-title">إنشاء قصّة</span>
+                    </div>
+
+                    <!-- Story 1 -->
+                    <div class="story-card">
+                        <img src="images/status-2.png" class="story-bg" alt="قصة">
+                        <div class="story-overlay"></div>
+                        <img src="images/member-2.png" class="story-avatar" alt="أحمد محمود">
+                        <span class="story-author">أحمد محمود</span>
+                    </div>
+
+                    <!-- Story 2 -->
+                    <div class="story-card">
+                        <img src="images/member-3.png" class="story-bg" alt="قصة">
+                        <div class="story-overlay"></div>
+                        <img src="images/member-3.png" class="story-avatar" alt="مريم علي">
+                        <span class="story-author">مريم علي</span>
+                    </div>
+
+                    <!-- Story 3 -->
+                    <div class="story-card">
+                        <img src="images/member-4.png" class="story-bg" alt="قصة">
+                        <div class="story-overlay"></div>
+                        <img src="images/member-4.png" class="story-avatar" alt="عمر خليل">
+                        <span class="story-author">عمر خليل</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- CREATE POST BOX -->
+            <div class="create-post-card">
+                <div class="create-post-top">
+                    <img src="images/a.png" alt="صورة الملف الشخصي">
+                    <input type="text" id="new-post-input" placeholder="بمَ تفكّر يا سارة؟">
+                </div>
+                <hr class="divider">
+                <div class="create-post-actions">
+                    <button class="post-action-btn">
+                        <i class="fa-solid fa-video text-red"></i>
+                        <span>فيديو مباشر</span>
+                    </button>
+                    <button class="post-action-btn">
+                        <i class="fa-solid fa-images text-emerald"></i>
+                        <span>صورة/فيديو</span>
+                    </button>
+                    <button class="post-action-btn">
+                        <i class="fa-solid fa-face-smile text-amber"></i>
+                        <span>شعور/نشاط</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- POST CARD -->
+            <article class="post-card">
+                <!-- Post Header -->
+                <div class="post-header">
+                    <div class="post-author-info">
+                        <img src="images/status-3.png" alt="أحمد محمود">
+                        <div>
+                            <h4 class="author-name">أحمد محمود</h4>
+                            <p class="post-time">
+                                <span>منذ ساعتين</span>
+                                <span>•</span>
+                                <i class="fa-solid fa-earth-americas"></i>
+                            </p>
+                        </div>
+                    </div>
+                    <button class="more-btn"><i class="fa-solid fa-ellipsis"></i></button>
+                </div>
+
+                <!-- Post Text -->
+                <div class="post-body">
+                    يسعدني مشاركتكم واجهة المستخدم الجديدة لمشروعنا التفاعلي! تم بناء التصميم بالكامل بناءً على التخطيط السريع ورسم الفكرة بالأيدي 🎨🚀
+                </div>
+
+                <!-- Post Image -->
+                <div class="post-image-container">
+                    <img src="images/feed-image-2.png" alt="منشور">
+                </div>
+
+                <!-- Post Stats Counter -->
+                <div class="post-stats">
+                    <div class="likes-info">
+                        <span class="like-badge badge-blue"><i class="fa-solid fa-thumbs-up"></i></span>
+                        <span class="like-badge badge-red"><i class="fa-solid fa-heart"></i></span>
+                        <span id="like-count-1">124</span>
+                    </div>
+                    <div class="comments-info">
+                        <span>18 تعليق</span>
+                        <span>5 مشاركات</span>
+                    </div>
+                </div>
+
+                <!-- Post Action Buttons -->
+                <div class="post-actions">
+                    <button onclick="toggleLike(1, this)" class="action-btn">
+                        <i class="fa-regular fa-heart"></i>
+                        <span>إعجاب</span>
+                    </button>
+                    <button onclick="focusComment(1)" class="action-btn">
+                        <i class="fa-regular fa-comment"></i>
+                        <span>تعليق</span>
+                    </button>
+                    <button class="action-btn">
+                        <i class="fa-regular fa-share-from-square"></i>
+                        <span>مشاركة</span>
+                    </button>
+                </div>
+
+                <!-- Comments Container -->
+                <div class="comments-section">
+                    <!-- Comment 1 -->
+                    <div class="comment-item">
+                        <img src="images/status-2.png" alt="مريم علي">
+                        <div class="comment-content">
+                            <div class="comment-bubble">
+                                <span class="comment-author">مريم علي</span>
+                                عمل رائع جداً ومتقن! بالتوفيق دائماً.
+                            </div>
+                            <div class="comment-meta">
+                                <button>إعجاب</button>
+                                <button>رد</button>
+                                <span>منذ ساعة</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dynamic Comments List -->
+                    <div id="comments-list-1" class="dynamic-comments"></div>
+
+                    <!-- Add Comment Input Box -->
+                    <div class="add-comment-box">
+                        <img src="images/member-8.png" alt="سارة أحمد">
+                        <div class="comment-input-wrapper">
+                            <input type="text" id="comment-input-1" placeholder="اكتب تعليقاً..." onkeypress="handleCommentSubmit(event, 1)">
+                            <button onclick="addComment(1)" class="send-btn">
+                                <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </main>
+
+        <!-- RIGHT SIDEBAR (Contacts & Friend Requests) -->
+        <aside class="sidebar sidebar-right">
+            
+            <!-- FRIEND REQUESTS SECTION -->
+            <div class="sidebar-section">
+                <div class="section-header">
+                    <h3>طلبات الصداقة (Friend Requests)</h3>
+                    <a href="#" class="link-btn">عرض الكل</a>
+                </div>
+
+                <div class="requests-list">
+                    <div class="request-card">
+                        <div class="user-profile-card">
+                            <img src="images/member-4.png" alt="عمر خليل">
+                            <div class="user-info">
+                                <h4>عمر خليل</h4>
+                                <p>3 صديق مشترك</p>
+                            </div>
+                        </div>
+                        <div class="request-actions">
+                            <button onclick="this.closest('.request-card').remove()" class="btn btn-primary">تأكيد</button>
+                            <button onclick="this.closest('.request-card').remove()" class="btn btn-secondary">حذف</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- CONTACTS SECTION -->
+            <div class="sidebar-section flex-1">
+                <div class="section-header">
+                    <h3>جهات الاتصال (Contacts)</h3>
+                    <div class="header-icons">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-ellipsis"></i>
+                    </div>
+                </div>
+
+                <!-- Online Friends List -->
+                <div class="contacts-list">
+                    <div class="contact-item">
+                        <div class="avatar-status">
+                            <img src="images/status-2.png" alt="مريم علي">
+                            <span class="status-dot online"></span>
+                        </div>
+                        <span class="item-title">مريم علي</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="avatar-status">
+                            <img src="images/photo6.png" alt="خالد حسن">
+                            <span class="status-dot online"></span>
+                        </div>
+                        <span class="item-title">خالد حسن</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="avatar-status">
+                            <img src="images/photo5.png" alt="نور الهدى">
+                            <span class="status-dot offline"></span>
+                        </div>
+                        <span class="item-title">نور الهدى</span>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="avatar-status">
+                            <img src="images/photo4.png" alt="يوسف منصور">
+                            <span class="status-dot online"></span>
+                        </div>
+                        <span class="item-title">يوسف منصور</span>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/Logic.js"></script>
+</body>
+</html>
